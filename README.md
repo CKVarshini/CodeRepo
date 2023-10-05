@@ -1,2 +1,5 @@
 # VarshiniCK
-New repo
+Projects Repo
+-Web application
+-Database projects
+-AIML projects
