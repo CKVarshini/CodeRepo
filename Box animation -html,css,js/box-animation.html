@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+      background-color: #fff;
+    }
+
+    #container {
+      display: flex;
+      width: 500px;
+      height: 300px;
+      border: 10px solid #000000;
+      justify-content: space-around;
+      background-color: #000;
+    }
+
+    .box {
+      height: 300px;
+      flex: 1;
+      align-self: flex-end;
+      transition: height 0.5s ease;
+    }
+
+    #box1 { background-color: #ff5733; }
+    #box2 { background-color: #33ff57; }
+    #box3 { background-color: #5733ff; }
+    #box4 { background-color: #f5ff33; }
+    #box5 { background-color: #555f33; }
+
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius:5px;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+  </style>
+  <title>Box Animation</title>
+</head>
+<body>
+
+<div id="container">
+  <div id="box1" class="box"></div>
+  <div id="box2" class="box"></div>
+  <div id="box3" class="box"></div>
+  <div id="box4" class="box"></div>
+  <div id="box5" class="box"></div>
+</div>
+<div>
+  <button onclick="startAnimation()" style="background-color: #2ecc71; color: #fff;">Start</button>
+  <button onclick="stopAnimation()" style="background-color: #e74c3c; color: #fff;">Stop</button>
+  <button onclick="resetBoxes()" style="background-color: #9b59b6; color: #fff;">Reset</button>
+</div>
+
+<script>
+  let animationInterval;
+
+  function startAnimation() {
+    animationInterval = setInterval(() => {
+      moveBox('box1');
+      moveBox('box2');
+      moveBox('box3');
+      moveBox('box4');
+      moveBox('box5');
+    }, 500);
+  }
+
+  function stopAnimation() {
+    console.log(clearInterval(animationInterval));
+    clearInterval(animationInterval);
+  }
+
+  function resetBoxes() {
+    stopAnimation();
+    document.querySelectorAll('.box').forEach(box => {
+      box.style.height = "300px";
+    });
+  }
+
+  function moveBox(boxId) {
+    const box = document.getElementById(boxId);
+
+    const randomHeight = Math.floor(Math.random() * (150));
+    box.style.height = `${randomHeight}px`;
+  }
+</script>
+
+</body>
+</html>
