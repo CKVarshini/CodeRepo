@@ -19,6 +19,8 @@ Example 3:
 Input: s = "paper", t = "title"
 Output: true */
 
+import java.util.HashMap;
+
 class Solution {
   public boolean isIsomorphic(String s, String t) {
       if (s.length() != t.length())

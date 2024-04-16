@@ -24,6 +24,9 @@ Constraints:
 1 <= ransomNote.length, magazine.length <= 105
 ransomNote and magazine consist of lowercase English letters.
  */
+
+import java.util.HashMap;
+
 class Solution {
   public boolean canConstruct(String ransomNote, String magazine) {
       
